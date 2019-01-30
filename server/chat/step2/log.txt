@@ -1,0 +1,9 @@
+[Wed Jan 30 2019 14:29:53 GMT+0900 (GMT+09:00)]200 /index.html[function Date() { [native code] }] 200 /index.html
+[Wed Jan 30 2019 14:29:53 GMT+0900 (GMT+09:00)]200 /img/favicon.ico[function Date() { [native code] }] 200 /img/favicon.ico
+[Wed Jan 30 2019 14:30:09 GMT+0900 (GMT+09:00)]404 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4[function Date() { [native code] }] 404 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
+[Wed Jan 30 2019 14:32:34 GMT+0900 (GMT+09:00)]404 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4[function Date() { [native code] }] 404 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
+[Wed Jan 30 2019 14:35:27 GMT+0900 (GMT+09:00)]404 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4[function Date() { [native code] }] 404 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
+[Wed Jan 30 2019 14:38:11 GMT+0900 (GMT+09:00)]200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4[function Date() { [native code] }] 200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
+[Wed Jan 30 2019 14:43:55 GMT+0900 (GMT+09:00)]200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4[function Date() { [native code] }] 200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
+[Wed Jan 30 2019 14:54:17 GMT+0900 (GMT+09:00)]200 /index.html[function Date() { [native code] }] 200 /index.html
+[Wed Jan 30 2019 14:54:22 GMT+0900 (GMT+09:00)]200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4[function Date() { [native code] }] 200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4

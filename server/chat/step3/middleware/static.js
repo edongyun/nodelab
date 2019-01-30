@@ -1,17 +1,12 @@
-var http = require('http');
 var os = require('os');
 var fs = require('fs');
 var path = require('path');
-var qs = require('querystring');  // 이것도 core module
+var qs = require('querystring');  
 var url = require('url'); 
-var mimeTypes = require('mime');  //요청 파일의 확장자에 따라 알맞은 type을 반환
+var mimeTypes = require('mime');
 
-// 로그 파일,  {flags: 'a'} = append 모드
-var logfile = fs.createWriteStream('log.txt', {flags: 'a'});  
-
-// connection listener 등록
-//요청 메시지를 파싱한 req, 응답 메시지를 손쉽게 만들어주는 res
-var server = http.createServer(function(req, res){ 
+// 정적인 자원을 응답하는 기능
+function staticServer(req, res){
   if(req.url == '/'){
     req.url = '/index.html';
   }
@@ -20,7 +15,7 @@ var server = http.createServer(function(req, res){
   var pathname = parseUrl.pathname;  // ?앞 부분
   var query = qs.parse(parseUrl.query);        // ?뒷 부분 parseUrl.query;
 
-  var filename = path.join(__dirname, pathname);
+  var filename = path.join(base, pathname);
   var extname = path.extname(filename).substring(1);  //확장자 꺼내오기
   var mimeType = mimeTypes.getType(extname);
 
@@ -38,19 +33,20 @@ var server = http.createServer(function(req, res){
       res.end('<h1>디렉토리 접근이 허용되지 않습니다.</h1>');
     }
 
-    // 로깅 메세지 출력 (시간, 상태코드, url)
-    logfile.write('[' + Date() + ']'+ res.statusCode + ' ' + req.url);
-    logfile.write(`[${Date}] ${res.statusCode} ${req.url}`);
-    logfile.write(require('os').EOL)  // 줄바꿈 기호
-  });  
-});
-var port = process.argv[2] || 80;  //port가 있으면 사용하고, 생략되어 있으면 80으로
-console.log(process.argv[2]);
-server.listen(80, function(){
-  console.log('HTTP 서버 구동완료.');
-});
+  }); 
+}
 
+// 경로를 지정해주는 기능
+var base;
+function setBase(dir){
+  base = dir;
+  return staticServer;
+}
 
+module.exports = setBase;
 
+// var static = require('./middleware/static');
+// //정적 파일들이 있는 경로
+// static(path.join(__dirname, 'public'));  
 
-
+// var static = require('./middleware/static')(path.join(__dirname, 'public');

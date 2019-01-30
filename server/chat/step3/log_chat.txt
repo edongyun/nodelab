@@ -1,0 +1,5 @@
+[function Date() { [native code] }] 200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
+[function Date() { [native code] }] 200 /%EC%9A%8D
+[function Date() { [native code] }] 200 /hello
+[function Date() { [native code] }] 200 /index
+[Wed Jan 30 2019 15:30:29 GMT+0900 (GMT+09:00)] 200 /chat.html?username=%EC%9D%B4%EB%8F%99%EC%9C%A4
