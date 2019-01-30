@@ -2,8 +2,8 @@ var net = require('net');
 
 // 접속할 대상 - 기존에 존재하는 웹 서버
 var target = {
-  host: 'google.com',
-  port: 80
+  host: 'localhost',  //google.com
+  port: 3456          //80
 };
 
 // 클라이언트는 socket을 생성해야 한다.
@@ -20,7 +20,7 @@ socket.on('data', function(data){
 // socket.connect(port[, host][, connectListener])
 socket.connect(target.port, target.host, function(){
   console.log('서버 접속 성공.', target.host + ":" + target.port);
-  // socket.write('hello I am client.');
+  socket.write('hello I am client.');
 });
 
 // process.stdin.resume();

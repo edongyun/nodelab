@@ -11,7 +11,10 @@ var server = net.createServer(function(socket){
   // 클라이언트가 data를 보내면 문자열로 출력.
   socket.on('data', function(data){
     console.log(data.toString());
-    socket.write('Hi I am Server');
+    socket.write('Hello I am Server');
+  });
+  socket.on('end', () => {
+    console.log('client disconnected');
   });
 });
 
