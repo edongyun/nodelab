@@ -1,0 +1,21 @@
+{
+  "name": "nodelab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "clog": "^0.1.6",
+    "mime": "^2.4.0",
+    "mongodb": "^3.1.13",
+    "node-static": "^0.7.11",
+    "tracer": "^0.9.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./hello/helloServer.js",
+    "start2": "node ./hello/helloServer2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

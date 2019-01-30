@@ -1,0 +1,1 @@
+console.log('m2.js 로딩됨.');
