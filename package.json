@@ -6,16 +6,23 @@
   "dependencies": {
     "clog": "^0.1.6",
     "connect": "^3.6.6",
+    "ejs": "^2.6.1",
+    "express-session": "^1.15.6",
     "mime": "^2.4.0",
     "mongodb": "^3.1.13",
+    "morgan": "^1.9.1",
+    "nocache": "^2.0.0",
     "node-static": "^0.7.11",
+    "server-static": "^2.0.5",
+    "socket.io": "^2.2.0",
     "tracer": "^0.9.8"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node ./hello/helloServer.js",
     "start2": "node ./hello/helloServer2.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db": "C:/Program Files/MongoDB/Serve/4.0/bin/mongod"
   },
   "author": "",
   "license": "ISC"

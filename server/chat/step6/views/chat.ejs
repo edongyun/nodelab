@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Node.js</title>
+<meta charset="utf-8">
+<title>채팅</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="shortcut icon" href="/img/favicon.ico">
+</head>
+<body class="well">
+	<h1><%=title%></h1>
+	<div class="form-group">	  		
+		<textarea id="panel" rows="20" cols="70"  class="form-control" disabled></textarea>
+  </div>
+  <% if(nickname){ %>}
+	<div class="form-inline">
+		<output><%=nickname%></output>
+		<input class="form-control" type="text" size="80" autofocus>
+		<button type="button" class="btn btn-success">메세지 전송</button>
+		<a href="/logout"><button type="submit" class="btn btn-danger">로그아웃</button></a>
+  </div>
+  <% }else{ %>
+    <a href="/">로그인</a> 후에 대화에 참여할 수 있습니다.
+  <% } %>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    // 웹소켓 접속
+    var ws = io('ws://localhost:80');  //웹소켓 서버 url을 인자로 넘긴다.
+
+    // 서버의 메세지 출력
+    var msgOut = document.querySelector('#panel');  // textarea에 연결
+    ws.on('chat', function(msg){
+      msgOut.value += msg + '\n';
+      msgOut.scrollTop = msgOut.scrollHeight;  // 최신 메세지가 위에 보이도록...
+    });
+
+    // 로그인
+    ws.emit('login', '<%=nickname%>');
+
+    // 서버로 메세지 전송
+
+    // 클릭 이벤트 등록
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
