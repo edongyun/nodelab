@@ -3,9 +3,10 @@ var model = require('../models/board');  //mongodb
 // var model = require('../models/board_async');  // 비동기 함수
 
 exports.list = function(req, res){
+  var page = parseInt(req.query.page);
   model.list(function(list){
     res.render('board/list', { title: '게시물 목록', list: list });
-  })
+  }, page)
 };
 exports.form = function(req, res){
   res.render('board/write', { title: '글쓰기' });

@@ -26,6 +26,10 @@ router.get('/board/:no', function(req, res, next) {
 router.delete('/board/:no', function(req, res, next) {
   controller.remove(req, res);
 });
+// 프로세스 종료
+router.get('/exit', function(){
+  process.exit(0);
+});
 
 module.exports = router;
 

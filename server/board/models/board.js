@@ -28,7 +28,7 @@ const dbName = 'boardDB'; // Database Name
 var db;
 var client;
 // Use connect method to connect to the server
-MongoClient.connect(url, { useNewUrlParser: true }, function(err, result) {
+MongoClient.connect(url, { useNewUrlParser: true, poolSize: 10 }, function(err, result) {
   console.log("Connected successfully to server");
   client = result;
   db = client.db(dbName);
@@ -38,10 +38,15 @@ MongoClient.connect(url, { useNewUrlParser: true }, function(err, result) {
 });
 
 module.exports = {
-	list: function(cb){
+	list: function(cb, page){
+    page = page || 1;  //page 번호가 있으면 사용하고 없으면 1로
     // TODO: DB에서 목록 조회 후 결과를 콜백으로 전달
     //find()까지만 하면 cursor객체가 나온다. 그래서 toArray로 배열로 만든다.
-    db.board.find({}, {content: 0}).sort({_id: -1}).toArray(function(err, result){
+    db.board.find({}, {content: 0})
+            .sort({_id: -1})
+            .skip((page-1)*10)  // 10개씩 건너띄기
+            .limit(10)          // 한 페이지 10개만
+            .toArray(function(err, result){
       cb(result);
     });  
     // cb(boardList);
