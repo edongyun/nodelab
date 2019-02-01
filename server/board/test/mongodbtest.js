@@ -57,7 +57,7 @@ db.seq.insert({seq: 1});
 db.seq.findOneAndUpdate({}, {$inc: {seq: 1}});
 
 // board DB 초기화
-use boardDB;
+// use boardDB;
 db.runCommand({dropDatabase: 1});
 db.board.insert([b1, b2]);
 db.seq.insert({seq: 3});

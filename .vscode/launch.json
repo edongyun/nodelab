@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}\\server\\chat\\step1\\staticserver.js"
+      "program": "${workspaceFolder}\\server\\board\\bin\\www"
     }
   ]
 }

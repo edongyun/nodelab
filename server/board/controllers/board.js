@@ -1,4 +1,6 @@
-var model = require('../models/board');
+var model = require('../models/board');  //mongodb
+// var model = require('../models/board_mysql');  //mysql
+// var model = require('../models/board_async');  // 비동기 함수
 
 exports.list = function(req, res){
   model.list(function(list){
@@ -22,8 +24,8 @@ exports.show = function(req, res){
 };
 exports.remove = function(req, res){
   var no = req.params.no;
-  model.remove(no, function(){
-    res.redirect('/');  
+  model.remove(parseInt(no), function(){
+    res.redirect('/board');  
   });
 };
 

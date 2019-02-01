@@ -11,9 +11,11 @@ function logger(option){
       console.log(`[${Date()}] ${res.statusCode} ${req.url}`);
     }else if(option.type == 'file'){
       logfile.write(`[${Date()}] ${res.statusCode} ${req.url}`);
-      logfile.write(EOL)  // 줄바꿈 기호
+      logfile.write(EOL, function(){
+        next();
+      });  // 줄바꿈 기호
     }
-    next();
+    
   }
 }
 

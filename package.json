@@ -6,11 +6,13 @@
   "dependencies": {
     "clog": "^0.1.6",
     "connect": "^3.6.6",
+    "date-format": "^2.0.0",
     "ejs": "^2.6.1",
     "express-session": "^1.15.6",
     "mime": "^2.4.0",
     "mongodb": "^3.1.13",
     "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
     "nocache": "^2.0.0",
     "node-static": "^0.7.11",
     "server-static": "^2.0.5",

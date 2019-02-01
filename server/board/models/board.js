@@ -19,6 +19,8 @@ var b2 = {
 var boardList = [b1, b2];
 */
 
+var dateFormat = require('date-format');  // date를 넘기면 지정한 포멧으로 넘겨주는 모듈
+
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017'; // Connection URL
 const dbName = 'boardDB'; // Database Name
@@ -52,11 +54,22 @@ module.exports = {
     // cb(boardList[no]);
   },
 	create: function(board, cb){
-    db.seq.findOneAndUpdate({}, {$inc: {seq: 1}});
-    cb(1);
+    db.seq.findOneAndUpdate({}, {$inc: {seq: 1}}, function(err, result){
+      board._id = result.value.seq;
+      board.view = 0; // 조회수 초기값
+      board.regdate = dateFormat.asString('yyyy-MM-dd hh:mm', new Date());   // 등록 날짜
+      db.board.insertOne(board, function(){
+        cb(board._id);
+      });
+    });
+    // cb(1);
   },
 	remove: function(no, cb){
-    cb();
+    db.board.deleteOne({_id: no}, function(err, result){
+      // console.log(result);
+      cb();
+    });
+    // cb();
   },
   close: function(){
     client.close();
