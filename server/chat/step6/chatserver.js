@@ -7,7 +7,7 @@ function chat(io){
       io.emit('chat', `시스템: ${ws.nickname}님이 입장했습니다.`);  // 이벤트 emmit에서 이벤트를 발생시킬 때는 emit() 사용, 읽을 때는 on, 보낼 때는 emit
     });          // login event
     ws.on('chat', function(msg){
-      io.emit('chat', `${nickname}: ${msg}`);
+      io.emit('chat', `${ws.nickname}: ${msg}`);
     });           // chat event
     ws.on('disconnect', function(){
       io.emit('chat', `시스템: ${ws.nickname}님이 나갔습니다.`); 

@@ -38,8 +38,23 @@
     ws.emit('login', '<%=nickname%>');
 
     // 서버로 메세지 전송
+    var msg = document.querySelector('input');
+    function send(){
+      ws.emit('chat', msg.value);  // chat 이벤트 전송
+      msg.value = '';
+      msg.focus();
+    }
 
     // 클릭 이벤트 등록
+    var sendBtn = document.querySelector('button');
+    if(sendBtn){
+      sendBtn.onclick = send;
+      msg.onkeydown = function(event){
+        if(event.keyCode == 13){  // enter 키가 눌렸다면
+          send();
+        }
+      }
+    }
 
   </script>
 </body>
